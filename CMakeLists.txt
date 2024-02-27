@@ -15,6 +15,8 @@ SET(EXECUTABLE_OUTPUT_PATH ${dir})
 SET(LIBRARY_OUTPUT_PATH ${dir}lib)
 SET(CMAKE_CACHEFILE_DIR ${dir})
 
+set(CXX_STANDARD_REQUIRED ON)
+
 # Add source files
 set(SOURCES
     src/main.cpp
@@ -29,6 +31,8 @@ set(HEADERS
 
 # Add executable target
 add_executable(NetworkDispatcher ${SOURCES} ${HEADERS})
+
+target_compile_features(NetworkDispatcher PUBLIC cxx_std_23)
 
 # Include directories
 target_include_directories(NetworkDispatcher PUBLIC include)
